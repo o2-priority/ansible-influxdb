@@ -298,10 +298,10 @@ hostname = "{{ influxdb_hostname }}"
   # ca-certs = ""
 
   # The number of writer goroutines processing the write channel.
-  # write-concurrency = 40
+  write-concurrency = "{{ influxdb_subscriber_write_concurrency|default('40') }}"
 
   # The number of in-flight writes buffered in the write channel.
-  # write-buffer-size = 1000
+  write-buffer-size = "{{ influxdb_subscriber_write_buffer_size|default('1000') }}"
 
 
 ###
