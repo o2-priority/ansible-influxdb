@@ -60,6 +60,8 @@ hostname = "{{ influxdb_hostname }}"
   # log any sensitive data contained within a query.
   query-log-enabled = {{ influxdb_data_query_log_enabled|default(false)|bool|lower }}
 
+  index-version = "{{ influxdb_index_version }}"
+
   # Settings for the TSM engine
 
   # CacheMaxMemorySize is the maximum size a shard's cache can
@@ -92,6 +94,8 @@ hostname = "{{ influxdb_hostname }}"
   compact-full-write-cold-duration = {{ influxdb_data_compact_full_write_cold_duration }}
 {% endif %}
 
+  # In-memory (`inmem`) Index Settings
+
   # The maximum series allowed per database before writes are dropped.  This limit can prevent
   # high cardinality issues at the database level.  This limit can be disabled by setting it to
   # 0.
@@ -107,6 +111,11 @@ hostname = "{{ influxdb_hostname }}"
 {% if influxdb_data_max_values_per_tag|default(false) %}
   max-values-per-tag = {{ influxdb_data_max_values_per_tag }}
 {% endif %}
+
+  # Disk (`tsi1`) Index Settings
+
+  max-index-log-file-size = "{{ influxdb_data_max_index_log_file_size }}"
+  series-id-set-cache-size = 100
 
 ###
 ### [coordinator]

@@ -34,7 +34,7 @@ influxdb_meta_logging_enabled: true
 influxdb_data_dir: "{{ influxdb_home_dir }}/data"
 influxdb_data_wal_dir: "{{ influxdb_home_dir }}/wal"
 influxdb_data_trace_logging_enabled: false
-# influxdb_data_query_log_enabled: true
+influxdb_data_query_log_enabled: false
 # influxdb_data_cache_max_memory_size: 1048576000
 # influxdb_data_cache_snapshot_memory_size: 26214400
 # influxdb_data_cache_snapshot_write_cold_duration: "1h"
@@ -42,6 +42,8 @@ influxdb_data_trace_logging_enabled: false
 #
 # influxdb_data_max_series_per_database: 1000000
 # influxdb_data_max_values_per_tag: 100000
+influxdb_index_version: "tsi1"
+influxdb_data_max_index_log_file_size: "2m"
 
 ### [coordinator]
 influxdb_coordinator_write_timeout: "10s"
@@ -76,7 +78,7 @@ influxdb_admin_https_certificate: "/etc/ssl/influxdb.pem"
 influxdb_http_enabled: true
 influxdb_http_bind_address: ":8086"
 influxdb_http_auth_enabled: false
-influxdb_http_log_enabled: true
+influxdb_http_log_enabled: false
 influxdb_http_write_tracing: false
 influxdb_http_pprof_enabled: false
 influxdb_http_https_enabled: false
