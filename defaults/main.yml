@@ -70,7 +70,7 @@ influxdb_monitor_store_interval: "10s" # The interval at which to record statist
 
 ### [admin]
 influxdb_admin_enabled: true
-influxdb_admin_bind_address: ":8083"
+influxdb_admin_bind_address: "0.0.0.0:8088"
 influxdb_admin_https_enabled: false
 influxdb_admin_https_certificate: "/etc/ssl/influxdb.pem"
 

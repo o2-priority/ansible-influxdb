@@ -19,6 +19,9 @@ reporting-disabled = {{ influxdb_reporting_disabled|default(false)|bool|lower }}
 hostname = "{{ influxdb_hostname }}"
 {% endif %}
 
+{% if influxdb_admin_bind_address|default(false) %}
+bind-address = "{{ influxdb_admin_bind_address }}"
+{% endif %}
 ###
 ### [meta]
 ###
@@ -219,7 +222,7 @@ hostname = "{{ influxdb_hostname }}"
   enabled = {{ influxdb_admin_enabled|default(true)|bool|lower }}
 
   # The default bind address used by the admin service.
-  bind-address = "{{ influxdb_admin_bind_address|default(':8083') }}"
+  bind-address = ":8083"
 
   # Whether the admin service should use HTTPS.
   https-enabled = {{ influxdb_admin_https_enabled|default(false)|bool|lower }}
