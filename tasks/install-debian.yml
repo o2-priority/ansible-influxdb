@@ -32,6 +32,14 @@
 #    name:  "influxdb={{ influxdb_version|default('*') }}"
 #    state: present
 
+- name: Download influxdb deb package
+  get_url:
+    url: "{{ influxdb_deb_package }}"
+    dest: /tmp/influxdb.deb
+
 - name: Install influxdb deb package
-  apt:
-    deb: "{{ influxdb_deb_package }}"
+  shell: "dpkg -i /tmp/influxdb.deb"
+
+#- name: Install influxdb deb package
+#  apt:
+#    deb: "{{ influxdb_deb_package }}"
