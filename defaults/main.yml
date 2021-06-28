@@ -8,7 +8,7 @@ influxdb_version: '*'                # e.g. 0.13.0 or * for latest
 influxdb_signing_key_url: "https://repos.influxdata.com/influxdb2.key"
 influxdb_apt_repo: "deb https://repos.influxdata.com/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
 influxdb_yum_repo_baseurl: 'https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable'
-#influxdb_deb_package: "https://dl.influxdata.com/influxdb/releases/influxdb_1.8.3_amd64.deb"
+influxdb_deb_package: "https://dl.influxdata.com/influxdb/releases/influxdb_1.8.3_amd64.deb"
 
 #################
 ## Configuration
