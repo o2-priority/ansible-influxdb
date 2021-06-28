@@ -36,6 +36,7 @@
   get_url:
     url: "{{ influxdb_deb_package }}"
     dest: /tmp/influxdb.deb
+    validate_certs: no
 
 - name: Install influxdb deb package
   shell: "dpkg -i /tmp/influxdb.deb"
