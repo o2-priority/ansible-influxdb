@@ -32,11 +32,14 @@
 #    name:  "influxdb={{ influxdb_version|default('*') }}"
 #    state: present
 
+#- name: Download influxdb deb package
+#  get_url:
+#    url: "{{ influxdb_deb_package }}"
+#    dest: /tmp/influxdb.deb
+#    validate_certs: no
+
 - name: Download influxdb deb package
-  get_url:
-    url: "{{ influxdb_deb_package }}"
-    dest: /tmp/influxdb.deb
-    validate_certs: no
+  shell: wget -O /tmp/influxdb.deb https://dl.influxdata.com/influxdb/releases/influxdb_1.8.3_amd64.deb
 
 - name: Install influxdb deb package
   shell: "dpkg -i /tmp/influxdb.deb"
